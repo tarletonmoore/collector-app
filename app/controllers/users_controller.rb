@@ -4,8 +4,12 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new
-    render template: "users/new"
+    if current_user
+      redirect_to "/games"
+    else
+      @user = User.new
+      render template: "users/new"
+    end
   end
 
   def create
