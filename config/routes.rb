@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   get "/signup" => "users#new"
   post "/users" => "users#create"
+  get "/me" => "users#show"
 
   get "/login" => "sessions#new"
   post "/sessions" => "sessions#create"
@@ -13,4 +14,7 @@ Rails.application.routes.draw do
 
   resources :games
   resources :series
+
+  post "/user_games" => "user_games#create"
+  delete "/user_games/:id" => "user_games#destroy"
 end

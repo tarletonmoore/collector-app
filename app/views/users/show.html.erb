@@ -1,5 +1,5 @@
-<h1>All Games</h1>
-<% @games.each do |game| %>
+<h1><%=current_user.name%>'s Collection</h1>
+<% @user.games.each do |game| %>
   <h2><%= game.title %></h2>
   <p>Console: <%= game.console %></p>
   <p>Released: <%= game.year %></p>
@@ -12,14 +12,7 @@
 Remove from collection
   </button>
 </form>
-<%else%>
-<form method="post" action="/user_games" class="inline">
-  <input type="hidden" name="game_id" value=<%=game.id %> >
-  <button type="submit" name="submit_param" value="submit_value" class="link-button">
-Add to Collection
-  </button>
-</form>
-
+<%end%>
 <% end %>
-<% end %>
+<a href="/games">Back to all games</a>
 
