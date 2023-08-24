@@ -1,16 +1,27 @@
 <div class="container">
-    <div class="row">
-      <%# <div class="col-4">
-        <span class="company">JOT</span>
-        <span>Sign up</span>
-      </div> %>
+  
       <div class="col-8">
-        <span><a href="/series">Series</a></span>
-        <span><a href="/games">Games</a></span>
+        
+        <%if current_user%>
+          <span><a href="/logout">Logout</a></span>
+
+          <span><a href="/series">Series</a></span>
+          <span><a href="/games">Games</a></span>
+          <%if current_user.admin%>
+          
+          <span><a href="/games/new">New Game</a></span>
+
+          <%end%>
+        <%else%>
+          <span><a href="/series">Series</a></span>
+          <span><a href="/games">Games</a></span>
+          <span><a href="/login">Log in</a></span>
+        <%end%>
       </div>
-    </div>
+    
   </div>
 <h1><%=current_user.name%>'s Collection</h1>
+<%if current_user.games.count > 0%>
 <% @user.games.each do |game| %>
   <h2><%= game.title %></h2>
   <p>Console: <%= game.console %></p>
@@ -26,5 +37,10 @@ Remove from collection
 </form>
 <%end%>
 <% end %>
+
+<%else%>
+<h2>You don't have anything in your collection 😢</h2>
+<%end%>
+
 <a href="/games">Back to all games</a>
 

@@ -1,0 +1,48 @@
+<h1>New Game</h1>
+<%= form_with model: @game do |form| %>
+  
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+    <%@game.errors.full_messages_for(:title).each do |message|%>
+      <div><%= message %></div>
+    <%end%>
+  </div>
+  <div>
+    <%= form.label :console %>
+    <%= form.text_field :console %>
+    <%@game.errors.full_messages_for(:console).each do |message|%>
+      <div><%= message %></div>
+    <%end%>
+
+  </div>
+  <div>
+    <%= form.label :year %>
+    <%= form.text_field :year %>
+    <%@game.errors.full_messages_for(:year).each do |message|%>
+      <div><%= message %></div>
+    <%end%>
+
+  </div>
+  <div>
+    <%= form.label :pricce %>
+    <%# change to number %>
+    <%= form.text_field :price %> 
+    <%@game.errors.full_messages_for(:price).each do |message|%>
+      <div><%= message %></div>
+    <%end%>
+
+  </div>
+  <div>
+    <%= form.label :series_id%>
+    <%= form.select :series_id, options_for_select(Series.all.map {|s| s.title}) %>
+    <%@game.errors.full_messages_for(:series_id).each do |message|%>
+      <div><%= message %></div>
+    <%end%>
+
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end%>
+<a href= "/games">Back to all games</a>
