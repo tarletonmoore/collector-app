@@ -5,15 +5,16 @@
         <%if current_user%>
           <span><a href="/logout">Logout</a></span>
 
-          <span><a href="/series">Series</a></span>
+          <span><a href="/games">Games</a></span>
           <span><a href="/me">Collection</a></span>
           <%if current_user.admin%>
-          
+          <span><a href="/series/new">New Series</a></span>
+
           <span><a href="/games/new">New Game</a></span>
 
           <%end%>
         <%else%>
-          <span><a href="/series">Series</a></span>
+          <span><a href="/games">Games</a></span>
           <span><a href="/me">Collection</a></span>
           <span><a href="/login">Log in</a></span>
         <%end%>

@@ -8,4 +8,19 @@ class SeriesController < ApplicationController
     @series = Series.find_by(id: params[:id])
     render :show
   end
+
+  def new
+    if current_user.admin
+      @series = Series.new
+      render :new
+    end
+  end
+
+  def create
+    @series = Series.create(
+      title: params[:series][:title],
+
+    )
+    redirect_to "/series"
+  end
 end

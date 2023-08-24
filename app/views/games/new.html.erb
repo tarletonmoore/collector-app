@@ -25,9 +25,9 @@
 
   </div>
   <div>
-    <%= form.label :pricce %>
+    <%= form.label :price %>
     <%# change to number %>
-    <%= form.text_field :price %> 
+    <%= form.number_field :price %> 
     <%@game.errors.full_messages_for(:price).each do |message|%>
       <div><%= message %></div>
     <%end%>
