@@ -5,6 +5,22 @@
     <p>Console: <%= game.console%></p>
   <p>Released: <%= game.year%></p>
     <p>Price: <%= game.price%></p>
+    <%if current_user.user_games.find_by(game_id: game.id) && current_user.user_games.find_by(game_id: game.id).is_collected == true %>
+<form method="delete" action="/user_games/<%=current_user.user_games.find_by(game_id: game.id).id%>" class="inline">
+
+  <button type="submit" name="submit_param" value="submit_value" class="link-button">
+Remove from collection
+  </button>
+</form>
+<%else%>
+<form method="post" action="/user_games" class="inline">
+  <input type="hidden" name="game_id" value=<%=game.id %> >
+  <button type="submit" name="submit_param" value="submit_value" class="link-button">
+Add to Collection
+  </button>
+</form>
+
+<% end %>
 <%end%>
 
 <a href="/series">Back to all series</a>
