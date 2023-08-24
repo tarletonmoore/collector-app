@@ -1,11 +1,18 @@
+<div class="container">
+    <div class="row">
+  
+      <div class="col-8">
+        <span><a href="/games">Games</a></span>
+        <span><a href="/login">Log in</a></span>
+        <span><a href="/me">Collection</a></span>
+      </div>
+    </div>
+  </div>
+
 <h1>All Series</h1>
 <% @series.each do |s| %>
   <h2><%= s.title %></h2>
-  <% s.games.each do |game| %>
-  <h3>Game: <%= game.title%></h3>
-    <p>Console: <%= game.console%></p>
-  <p>Released: <%= game.year%></p>
-    <p>Price: <%= game.price%></p>
+ 
+    <a href="/series/<%= s.id %>">More info</a>
 <%end%>
 
-<% end %>

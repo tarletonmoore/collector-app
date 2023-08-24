@@ -1,0 +1,10 @@
+<h1><%= @series.title %></h1>
+
+<% @series.games.each do |game| %>
+  <h2>Game: <%= game.title %></h2>
+    <p>Console: <%= game.console%></p>
+  <p>Released: <%= game.year%></p>
+    <p>Price: <%= game.price%></p>
+<%end%>
+
+<a href="/series">Back to all series</a>
