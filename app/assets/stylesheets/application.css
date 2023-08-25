@@ -131,3 +131,15 @@ hr.solid {
 .series-move {
   margin-right: 40px;
 }
+
+p {
+  font-weight: bold;
+}
+
+.link-button:hover {
+  color: red;
+}
+
+.series-index-button a:hover {
+  color: red;
+}

@@ -1,0 +1,32 @@
+<button class="back"><a href= "/games">Back to all games</a></button>
+
+<h1>Edit Game</h1>
+<%= form_with model: @game do |form| %>
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+  <div>
+    <%= form.label :console %>
+    <%= form.text_field :console %>
+  </div>
+  <div>
+    <%= form.label :year %>
+    <%= form.text_field :year %>
+  </div>
+    <div>
+    <%= form.label :price %>
+    <%= form.number_field :price %>
+  </div>
+  <div >
+    <%= form.label :series_id%>
+    <%= form.select :series_id, options_for_select(Series.all.map {|s| s.title}) %>
+    <%@game.errors.full_messages_for(:series_id).each do |message|%>
+      <div><%= message %></div>
+    <%end%>
+
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end%>

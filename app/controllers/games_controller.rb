@@ -29,4 +29,27 @@ class GamesController < ApplicationController
     )
     redirect_to "/games"
   end
+
+  def edit
+    if !current_user
+      redirect_to "/login"
+    elsif current_user.admin
+      @game = Game.find_by(id: params[:id])
+      render :edit
+    else
+      redirect_to "/games"
+    end
+  end
+
+  def update
+    @game = Game.find_by(id: params[:id])
+    @game.update(
+      title: params[:game][:title],
+      console: params[:game][:console],
+      year: params[:game][:year],
+      price: params[:game][:price],
+      series_id: Series.find_by(title: params[:game][:series_id]).id
+    )
+    redirect_to "/games"
+  end
 end
