@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   def show
-    @user = User.find_by(id: current_user.id)
+    if !current_user
+      redirect_to "/login"
+    else
+      @user = User.find_by(id: current_user.id)
+    end
   end
 
   def new

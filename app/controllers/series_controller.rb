@@ -1,18 +1,30 @@
 class SeriesController < ApplicationController
   def index
-    @series = Series.all
-    render :index
+    if current_user
+      @series = Series.all
+      render :index
+    else
+      redirect_to "/login"
+    end
   end
 
   def show
-    @series = Series.find_by(id: params[:id])
-    render :show
+    if current_user
+      @series = Series.find_by(id: params[:id])
+      render :show
+    else
+      redirect_to "/login"
+    end
   end
 
   def new
-    if current_user.admin
+    if !current_user
+      redirect_to "/login"
+    elsif current_user.admin
       @series = Series.new
       render :new
+    else
+      redirect_to "/games"
     end
   end
 

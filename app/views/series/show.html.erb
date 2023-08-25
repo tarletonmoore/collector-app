@@ -1,5 +1,6 @@
+<button class="back"><a href="/series">Back to all series</a></button>
 <h1><%= @series.title %></h1>
-
+<div class="series-show">
 <% @series.games.each do |game| %>
   <h2>Game: <%= game.title %></h2>
     <p>Console: <%= game.console%></p>
@@ -22,5 +23,6 @@ Add to Collection
 
 <% end %>
 <%end%>
-
-<a href="/series">Back to all series</a>
+</div>
+<br>
+<br>

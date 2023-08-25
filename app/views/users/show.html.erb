@@ -3,27 +3,29 @@
       <div class="col-8">
         
         <%if current_user%>
-          <span><a href="/logout">Logout</a></span>
+          <button><span><a href="/logout">Logout</a></span></button>
 
-          <span><a href="/series">Series</a></span>
-          <span><a href="/games">Games</a></span>
+          <button><span><a href="/series">Series</a></span></button>
+          <button><span><a href="/games">Games</a></span></button>
           <%if current_user.admin%>
-          <span><a href="/series/new">New Series</a></span>
+          <button><span><a href="/series/new">New Series</a></span></button>
 
-          <span><a href="/games/new">New Game</a></span>
+          <button><span><a href="/games/new">New Game</a></span></button>
 
           <%end%>
         <%else%>
-          <span><a href="/series">Series</a></span>
-          <span><a href="/games">Games</a></span>
-          <span><a href="/login">Log in</a></span>
+          <button><span><a href="/series">Series</a></span></button>
+         <button> <span><a href="/games">Games</a></span></button>
+         <button> <span><a href="/login">Log in</a></span></button>
         <%end%>
       </div>
     
   </div>
 <h1><%=current_user.name%>'s Collection</h1>
+<div class="collection">
 <%if current_user.games.count > 0%>
 <% @user.games.each do |game| %>
+<hr class="solid">
   <h2><%= game.title %></h2>
   <p>Console: <%= game.console %></p>
   <p>Released: <%= game.year %></p>
@@ -38,15 +40,14 @@ Remove from collection
 </form>
 <%end%>
 
-<!--
-<%sum = 0%>
- <%sum += game.price%>
-<p>Collection Total: <%sum%></p> -->
+
 
 <% end %>
 <%else%>
 <h2>You don't have anything in your collection 😢</h2>
 <%end%>
+<br>
+<hr class="solid">
+<h2 class="total">Collection Total: $<%=current_user.total%></h2> 
 
-<a href="/games">Back to all games</a>
-
+</div>

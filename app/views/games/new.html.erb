@@ -1,14 +1,16 @@
+<button class="back"><a href= "/games">Back to all games</a></button>
 <h1>New Game</h1>
 <%= form_with model: @game do |form| %>
-  
-  <div>
+  <div class="form-game">
+  <div class="title-move">
     <%= form.label :title %>
     <%= form.text_field :title %>
     <%@game.errors.full_messages_for(:title).each do |message|%>
       <div><%= message %></div>
     <%end%>
   </div>
-  <div>
+  <br>
+  <div class="console-move">
     <%= form.label :console %>
     <%= form.text_field :console %>
     <%@game.errors.full_messages_for(:console).each do |message|%>
@@ -16,6 +18,7 @@
     <%end%>
 
   </div>
+  <br>
   <div>
     <%= form.label :year %>
     <%= form.text_field :year %>
@@ -24,7 +27,8 @@
     <%end%>
 
   </div>
-  <div>
+  <br>
+  <div class="price-move">
     <%= form.label :price %>
     <%= form.number_field :price %> 
     <%@game.errors.full_messages_for(:price).each do |message|%>
@@ -32,7 +36,8 @@
     <%end%>
 
   </div>
-  <div>
+  <br>
+  <div class="series-move">
     <%= form.label :series_id%>
     <%= form.select :series_id, options_for_select(Series.all.map {|s| s.title}) %>
     <%@game.errors.full_messages_for(:series_id).each do |message|%>
@@ -40,8 +45,11 @@
     <%end%>
 
   </div>
-  <div>
+  <br>
+  <div class="form-button">
     <%= form.submit %>
   </div>
+  
 <% end%>
-<a href= "/games">Back to all games</a>
+
+</div>

@@ -1,38 +1,43 @@
 
 <h1>Signup</h1>
 <%= form_with model: @user do |form| %>
-  <div>
+<div class="signup">
+  <div class="form-signup">
     <%= form.label :name %>
     <%= form.text_field :name %>
     <% @user.errors.full_messages_for(:name).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
-  <div>
+  <div class="form-signup">
     <%= form.label :email %>
     <%= form.email_field :email %>
     <% @user.errors.full_messages_for(:email).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
-  <div>
+  <div class="form-signup">
+  <div class="pass-move">
     <%= form.label :password %>
     <%= form.password_field :password %>
     <% @user.errors.full_messages_for(:password).each do |message| %>
       <div><%= message %></div>
     <% end %>
+    </div>
   </div>
-  <div>
+  <div class="form-signup">
+  <div class="pass-con-move">
     <%= form.label :password_confirmation %>
     <%= form.password_field :password_confirmation %>
     <% @user.errors.full_messages_for(:password_confirmation).each do |message| %>
       <div><%= message %></div>
     <% end %>
+    </div>
   </div>
-  <div>
+  <div class="form-signup">
     <%= form.submit %>
   </div>
 <% end %>
-
+</div>
 <h2>Already Have an Account?</h2>
 <button><a href="/login">Login</a></button>

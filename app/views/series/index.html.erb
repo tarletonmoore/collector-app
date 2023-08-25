@@ -3,29 +3,33 @@
       <div class="col-8">
         
         <%if current_user%>
-          <span><a href="/logout">Logout</a></span>
+         <button> <span><a href="/logout">Logout</a></span></button>
 
-          <span><a href="/games">Games</a></span>
-          <span><a href="/me">Collection</a></span>
+         <button> <span><a href="/games">Games</a></span></button>
+         <button> <span><a href="/me">Collection</a></span></button>
+
           <%if current_user.admin%>
-          <span><a href="/series/new">New Series</a></span>
+         <button> <span><a href="/series/new">New Series</a></span></button>
 
-          <span><a href="/games/new">New Game</a></span>
+         <button> <span><a href="/games/new">New Game</a></span></button>
 
           <%end%>
         <%else%>
-          <span><a href="/games">Games</a></span>
-          <span><a href="/me">Collection</a></span>
-          <span><a href="/login">Log in</a></span>
+         <button> <span><a href="/games">Games</a></span></button>
+         <button> <span><a href="/me">Collection</a></span> </button>
+         <button> <span><a href="/login">Log in</a></span></button>
         <%end%>
       </div>
     
   </div>
 
 <h1>All Series</h1>
+<div class="series-index">
 <% @series.each do |s| %>
+<hr class="solid">
   <h2><%= s.title %></h2>
  
-    <a href="/series/<%= s.id %>">More info</a>
+   <button> <a href="/series/<%= s.id %>">More info</a></button>
 <%end%>
 
+</div>

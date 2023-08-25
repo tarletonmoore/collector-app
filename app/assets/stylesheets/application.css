@@ -13,3 +13,121 @@
  *= require_tree .
  *= require_self
  */
+body {
+  background-color: darkgrey;
+  margin-left: 20px;
+  color: black;
+}
+
+a {
+  text-decoration: none;
+  color: black
+}
+
+.col-8 {
+  margin-top: 10px;
+}
+
+.col-8 a {
+  margin: 20px;
+  color: black;
+}
+
+.col-8 a:hover {
+  color: red;
+}
+
+.form-button {
+  margin-left: 35px;
+}
+
+.games {
+  margin-bottom: 50px;
+  margin-left: 10px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.form-game {
+  text-align: center;
+}
+
+.form-series {
+  text-align: center;
+}
+
+.back {
+  margin-top: 10px;
+}
+
+.back a:hover {
+  color: red;
+}
+
+.series-show {
+  margin-left: 10px;
+}
+
+.collection {
+  margin-left: 10px;
+}
+
+.total {
+  margin-bottom: 25px;
+}
+
+.series-index {
+  margin-left: 10px;
+  margin-bottom: 50px;
+}
+
+hr.solid {
+  border-top: 3px solid black;
+}
+
+.login {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.form-login {
+  margin: 20px;
+}
+
+.signup {
+  text-align: center;
+}
+
+.form-signup {
+  margin: 10px;
+}
+
+.pass-con-move {
+  margin-right: 110px;
+}
+
+.pass-move {
+  margin-right: 25px;
+}
+
+.pass-move-login {
+  margin-right: 25px;
+}
+
+.console-move {
+  margin-right: 25px;
+}
+
+.title-move {
+  margin-right: 5px;
+}
+
+.price-move {
+  margin-right: 5px;
+}
+
+.series-move {
+  margin-right: 40px;
+}

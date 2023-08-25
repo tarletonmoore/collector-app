@@ -1,12 +1,20 @@
 class GamesController < ApplicationController
   def index
-    @games = Game.all
+    if current_user
+      @games = Game.all
+    else
+      redirect_to "/login"
+    end
   end
 
   def new
-    if current_user.admin
+    if !current_user
+      redirect_to "/login"
+    elsif current_user.admin
       @game = Game.new
       render :new
+    else
+      redirect_to "/games"
     end
   end
 
